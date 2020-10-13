@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 2121379 */
+  src: url('//at.alicdn.com/t/font_2121379_9oa1050n44f.eot');
+  src: url('//at.alicdn.com/t/font_2121379_9oa1050n44f.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2121379_9oa1050n44f.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2121379_9oa1050n44f.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2121379_9oa1050n44f.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2121379_9oa1050n44f.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-password:before {
+  /* 密码 */
+  content: "\e600";
+}
+
+.icon-le:before {
+  /* 乐 */
+  content: "\e689";
+}
+
+.icon-user:before {
+  /* 用户 */
+  content: "\e60d";
+}
+
+.icon-down:before {
+  /* 向下 */
+  content: "\e607";
+}
+.icon-set:before {
+  /* 个人设置 */
+  content: "\e62c";
+}
+.icon-management:before {
+  /* 后台管理 */
+  content: "\e669";
+}
+.icon-logout:before {
+  /* 退出 */
+  content: "\e7cd";
+}
+

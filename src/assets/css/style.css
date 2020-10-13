@@ -1,0 +1,33 @@
+body, html{
+  margin: 0;
+  padding: 0;
+}
+a{
+ text-decoration: none;
+ color: #666;
+}
+ul, li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fs12{
+  font-size: 12px;
+}
+.fs14{
+  font-size: 14px;
+}
+.fs16{
+  font-size: 16px;
+}
+.fs18{
+  font-size: 18px;
+}
+
+.clearfix:after{/*伪元素是行内元素 正常浏览器清除浮动方法*/
+  content: "";
+  display: block;
+  height: 0;
+  clear:both;
+  visibility: hidden;
+}
