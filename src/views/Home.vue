@@ -2,10 +2,10 @@
   <div class="home">
     <el-container>
       <el-header>
-        <nav-bar  />
+        <nav-bar />
       </el-header>
       <el-main>
-        <router-view/>
+        <router-view v-if="isRouterAlive" />
       </el-main>
       <el-footer>Footer</el-footer>
     </el-container>
@@ -20,13 +20,24 @@ export default {
   components: {
     NavBar,
   },
+  provide() {
+    return {
+      reload: this.reload,
+    };
+  },
   data() {
     return {
-      
+      isRouterAlive: true,
     };
   },
   methods: {
-   
+    reload() {
+      //  刷新页面
+      this.isRouterAlive = false;
+      this.$nextTick(function () {
+        this.isRouterAlive = true;
+      });
+    },
   },
 };
 </script>
@@ -41,7 +52,7 @@ export default {
   padding: 0;
   background: pink;
 }
-.el-main{
+.el-main {
   width: 100%;
   min-height: 600px;
   outline: 1px solid;

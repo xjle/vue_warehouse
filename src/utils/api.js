@@ -113,8 +113,19 @@ export function editUser(data) {
   /**
    * 修改用户
    */
+  console.log(typeof data['r']);
   return http({
     url: '/admin/update_user/',
+    method: "POST",
+    data
+  })
+}
+export function delUser(data) {
+  /**
+   * 删除用户
+   */
+  return http({
+    url: '/admin/del_user/',
     method: "POST",
     data
   })

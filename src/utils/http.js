@@ -10,7 +10,7 @@ import Qs from 'qs'
 //     axios.defaults.baseURL = 'https://www.production.com';
 // }
 // http://192.168.0.104:5000/ , http://192.168.7.219:5000/
-const url = 'http://192.168.7.219:5000/'
+const url = 'http://192.168.0.104:5000/'
 const service = axios.create({
   baseURL: url,
   timeout: 36000,

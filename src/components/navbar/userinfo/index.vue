@@ -14,17 +14,17 @@
               {{ item.name }}
             </a> -->
             <template v-if="item.logout">
-                <a :href="item.href" @click="logout">
-                  <i :class="item.icon" class="iconfont"></i>
-                  {{ item.name }}
-                </a>
-              </template>
+              <a :href="item.href" @click="logout">
+                <i :class="item.icon" class="iconfont"></i>
+                {{ item.name }}
+              </a>
+            </template>
             <template v-else>
-                <a v-if="item.role<=r" :href="item.href" >
-                  <i :class="item.icon" class="iconfont"></i>
-                  {{ item.name }}
-                </a>
-              </template>
+              <a v-if="item.role <= r" :href="item.href">
+                <i :class="item.icon" class="iconfont"></i>
+                {{ item.name }}
+              </a>
+            </template>
           </li>
         </ul>
         <a href="javascript:;" slot="reference">
@@ -45,14 +45,32 @@ export default {
       username: "",
       status: false,
       prpoverList: [
-        { name: "个人设置", role: 0, href: "/setting", logout: false,icon: "icon-set" },
-        { name: "后台管理", role: 300, href: "/management",logout: false, icon: "icon-management" },
-        { name: "退出登陆", role: 0, href: "/", logout: true, icon: "icon-logout" },
+        {
+          name: "个人设置",
+          role: 0,
+          href: "/setting",
+          logout: false,
+          icon: "icon-set",
+        },
+        {
+          name: "后台管理",
+          role: 300,
+          href: "/management",
+          logout: false,
+          icon: "icon-management",
+        },
+        {
+          name: "退出登陆",
+          role: 0,
+          href: "/",
+          logout: true,
+          icon: "icon-logout",
+        },
       ],
     };
   },
   mounted() {
-    this.getStatus()
+    this.getStatus();
   },
   methods: {
     btnUser(val) {
@@ -61,22 +79,31 @@ export default {
     getStatus() {
       getLoginStatus().then((res) => {
         let ret = res["data"];
+        console.log(ret);
         if (ret["code"] == 200) {
           this.r = ret["r"];
           this.status = ret["status"];
           // (/(\d{3})\d{4}(\d{4})/, '$1****$2')
-          this.username = ret['username'].replace(/(.{2}).+(.{2}@.+)/ig, '$1****$2');
+          this.username = ret["username"].replace(
+            /(.{2}).+(.{2}@.+)/gi,
+            "$1****$2"
+          );
+        } else {
+          this.username = "";
+          this.status = false;
+          this.r = 0;
         }
       });
     },
-    logout(){
-      getLogout().then(res=>{
-        let ret = res['data']
-        if (ret['code'] == 200) {
-          this.$router.go(0)
+    logout() {
+      getLogout().then((res) => {
+        let ret = res["data"];
+        if (ret["code"] == 200) {
+          this.$router.go(0);
+          this.status = false;
         }
-      })
-    }
+      });
+    },
   },
 };
 </script>
@@ -87,11 +114,11 @@ export default {
   text-align: center;
   line-height: 56px;
 }
-.li-info{
+.li-info {
   text-align: center;
   line-height: 34px;
 }
-.li-info:hover{
+.li-info:hover {
   background: #ccc;
 }
 </style>

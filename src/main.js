@@ -9,13 +9,16 @@ import {
   Button, Container, Header, Main, Footer, Menu, MenuItem,
   Submenu, Popover, Table, TableColumn, Form, FormItem,
   Input, Radio, RadioGroup, Tabs, TabPane, Message, Steps,
-  Step, Pagination
+  Step, Pagination, Dialog, Select, Option
 } from 'element-ui'
 
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 // Vue.prototype.$http = http
+Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
 Vue.use(Button)
 Vue.use(Container)
 Vue.use(Header)
